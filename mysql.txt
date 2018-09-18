@@ -1,0 +1,64 @@
+mysql> describe physicians;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| id       | int(10)     | YES  |     | NULL    |       |
+| name     | varchar(20) | NO   | PRI | NULL    |       |
+| password | varchar(10) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> describe patients;
++------------------+-------------+------+-----+---------+-------+
+| Field            | Type        | Null | Key | Default | Extra |
++------------------+-------------+------+-----+---------+-------+
+| id               | int(10)     | YES  |     | NULL    |       |
+| personalno       | int(20)     | NO   | PRI | NULL    |       |
+| firstname        | varchar(30) | YES  |     | NULL    |       |
+| secondname       | varchar(30) | YES  |     | NULL    |       |
+| sex              | varchar(10) | YES  |     | NULL    |       |
+| dateofbirth      | varchar(20) | YES  |     | NULL    |       |
+| placeofbirth     | varchar(20) | YES  |     | NULL    |       |
+| placeofresidence | varchar(30) | YES  |     | NULL    |       |
+| physician        | varchar(10) | YES  | MUL | NULL    |       |
++------------------+-------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+mysql> describe bones;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | varchar(10) | YES  |     | NULL    |       |
+| bone  | varchar(30) | NO   | PRI | NULL    |       |
+| stage | varchar(30) | YES  | MUL | NULL    |       |
+| text  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> describe bonestage;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | varchar(30) | YES  | MUL | NULL    |       |
+| name   | varchar(30) | YES  |     | NULL    |       |
+| stages | varchar(30) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> describe consultation;
++--------------------+-------------+------+-----+---------+-------+
+| Field              | Type        | Null | Key | Default | Extra |
++--------------------+-------------+------+-----+---------+-------+
+| idconsultation     | int(10)     | YES  |     | NULL    |       |
+| personalno         | int(20)     | YES  | MUL | NULL    |       |
+| dateofconsultation | varchar(30) | YES  |     | NULL    |       |
+| weight             | int(10)     | YES  |     | NULL    |       |
+| height             | int(10)     | YES  |     | NULL    |       |
+| diagnostic         | varchar(30) | NO   | PRI | NULL    |       |
+| selectedbones      | varchar(30) | YES  |     | NULL    |       |
+| realscore          | varchar(30) | YES  |     | NULL    |       |
+| maturityscore      | varchar(30) | YES  |     | NULL    |       |
+| boneage            | varchar(30) | YES  |     | NULL    |       |
+| physician          | varchar(30) | YES  | MUL | NULL    |       |
++--------------------+-------------+------+-----+---------+-------+
+11 rows in set (0.00 sec)
